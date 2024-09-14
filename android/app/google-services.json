@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "13772357179",
+    "project_id": "simple-pizza-app",
+    "storage_bucket": "simple-pizza-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:13772357179:android:3f1607f2683ceb10e4261e",
+        "android_client_info": {
+          "package_name": "com.example.pizza_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsHYT5EdQOC1yaS1MCCYSA3DT9w7Kbp-w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
