@@ -29,7 +29,7 @@ class HomeView extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 fontSize: 17,
               ),
-            )
+            ),
           ],
         ),
         actions: [

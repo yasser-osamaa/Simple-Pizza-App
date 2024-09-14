@@ -36,6 +36,30 @@ class HomeViewBody extends StatelessWidget {
               },
             ),
           ),
+          const SizedBox(
+            height: 20,
+          ),
+          GestureDetector(
+            onTap: () {},
+            child: const Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(
+                  'View all ',
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 34, 133, 214),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 22,
+                  ),
+                ),
+                Icon(
+                  Icons.arrow_forward,
+                  color: Colors.blue,
+                  size: 30,
+                )
+              ],
+            ),
+          )
         ],
       ),
     );
