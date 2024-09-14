@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pizza_app/widgets/home_view_body.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -38,9 +39,10 @@ class HomeView extends StatelessWidget {
               Icons.short_text_rounded,
               size: 50,
             ),
-          )
+          ),
         ],
       ),
+      body: const HomeViewBody(),
     );
   }
 }
