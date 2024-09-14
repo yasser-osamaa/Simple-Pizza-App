@@ -58,11 +58,15 @@ class CustomPizzaCard extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      CustomVegType(),
+                      CustomVegType(
+                        type: 'veg',
+                      ),
                       SizedBox(
                         width: 10,
                       ),
-                      CustomPizzaType(),
+                      CustomPizzaType(
+                        type: 'spicy',
+                      ),
                     ],
                   ),
                   SizedBox(
