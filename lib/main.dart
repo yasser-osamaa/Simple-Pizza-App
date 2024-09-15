@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pizza_app/firebase_options.dart';
 import 'package:pizza_app/views/all_menu_view.dart';
 import 'package:pizza_app/views/home_view.dart';
+import 'package:pizza_app/views/pizza_details_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,6 +26,7 @@ class PizzaApp extends StatelessWidget {
       routes: {
         HomeView.id: (context) => const HomeView(),
         AllMenuView.id: (context) => const AllMenuView(),
+        PizzaDetailsView.id: (context) => const PizzaDetailsView(),
       },
       initialRoute: HomeView.id,
     );
