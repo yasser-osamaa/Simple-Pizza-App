@@ -4,7 +4,9 @@ class CustomVegType extends StatelessWidget {
   const CustomVegType({
     super.key,
     required this.type,
+    this.fontSize = 15,
   });
+  final double? fontSize;
   final String type;
   @override
   Widget build(BuildContext context) {
@@ -18,10 +20,10 @@ class CustomVegType extends StatelessWidget {
               color: Colors.red,
               borderRadius: BorderRadius.circular(24),
             ),
-            child: const Text(
+            child: Text(
               'NON-VEG',
               style: TextStyle(
-                fontSize: 15,
+                fontSize: fontSize,
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
@@ -36,10 +38,10 @@ class CustomVegType extends StatelessWidget {
               color: Colors.green,
               borderRadius: BorderRadius.circular(24),
             ),
-            child: const Text(
+            child: Text(
               'PURE-VEG',
               style: TextStyle(
-                fontSize: 15,
+                fontSize: fontSize,
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pizza_app/views/all_menu_view.dart';
 import 'package:pizza_app/widgets/custom_pizza_card.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -40,7 +41,9 @@ class HomeViewBody extends StatelessWidget {
             height: 20,
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, AllMenuView.id);
+            },
             child: const Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [

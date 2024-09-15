@@ -4,8 +4,10 @@ class CustomPizzaType extends StatelessWidget {
   const CustomPizzaType({
     super.key,
     required this.type,
+    this.fontSize = 15,
   });
   final String type;
+  final double? fontSize;
   @override
   Widget build(BuildContext context) {
     return type == 'spicy'
@@ -18,10 +20,10 @@ class CustomPizzaType extends StatelessWidget {
               color: Colors.red[100],
               borderRadius: BorderRadius.circular(24),
             ),
-            child: const Text(
+            child: Text(
               '🔥SPICY',
               style: TextStyle(
-                fontSize: 15,
+                fontSize: fontSize,
                 color: Colors.red,
                 fontWeight: FontWeight.bold,
               ),
@@ -36,10 +38,10 @@ class CustomPizzaType extends StatelessWidget {
               color: Colors.green[100],
               borderRadius: BorderRadius.circular(24),
             ),
-            child: const Text(
+            child: Text(
               '☺ BALANCE',
               style: TextStyle(
-                fontSize: 10,
+                fontSize: fontSize,
                 color: Colors.green,
                 fontWeight: FontWeight.bold,
               ),
