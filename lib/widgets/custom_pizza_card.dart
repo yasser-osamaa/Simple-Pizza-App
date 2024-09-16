@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pizza_app/views/pizza_details_view.dart';
+import 'package:pizza_app/widgets/circle_pizza_image.dart';
 import 'package:pizza_app/widgets/custom_pizza_type.dart';
 import 'package:pizza_app/widgets/custom_plus_icon.dart';
 import 'package:pizza_app/widgets/custom_veg_type.dart';
@@ -47,11 +48,8 @@ class CustomPizzaCard extends StatelessWidget {
             children: [
               Positioned(
                 left: -0,
-                child: CircleAvatar(
-                  radius: 110,
-                  backgroundImage: NetworkImage(
-                    'https://media.gettyimages.com/id/83465439/photo/whole-pepperoni-pizza.jpg?s=612x612&w=0&k=20&c=eLzX63I4fRf9mkKuJeUvwYJ66K_qLezct4SbsUtEbdM=',
-                  ),
+                child: CirclePizzaImage(
+                  raduis: 110,
                 ),
               ),
               Padding(

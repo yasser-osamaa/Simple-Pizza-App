@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pizza_app/views/pizza_details_view.dart';
+import 'package:pizza_app/widgets/circle_pizza_image.dart';
 import 'package:pizza_app/widgets/custom_pizza_type.dart';
 import 'package:pizza_app/widgets/custom_plus_icon.dart';
 import 'package:pizza_app/widgets/custom_veg_type.dart';
@@ -13,7 +14,7 @@ class CustomSmallPizzaCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-         Navigator.pushNamed(context, PizzaDetailsView.id);
+        Navigator.pushNamed(context, PizzaDetailsView.id);
       },
       child: Container(
         decoration: BoxDecoration(
@@ -45,7 +46,9 @@ class CustomSmallPizzaCard extends StatelessWidget {
             children: [
               Positioned(
                 left: 12,
-                child: CirclePizzaImage(),
+                child: CirclePizzaImage(
+                  raduis: 70,
+                ),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16),
@@ -147,22 +150,6 @@ class RowPizzaType extends StatelessWidget {
           type: 'spicy',
         ),
       ],
-    );
-  }
-}
-
-class CirclePizzaImage extends StatelessWidget {
-  const CirclePizzaImage({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return const CircleAvatar(
-      radius: 70,
-      backgroundImage: NetworkImage(
-        'https://media.gettyimages.com/id/83465439/photo/whole-pepperoni-pizza.jpg?s=612x612&w=0&k=20&c=eLzX63I4fRf9mkKuJeUvwYJ66K_qLezct4SbsUtEbdM=',
-      ),
     );
   }
 }

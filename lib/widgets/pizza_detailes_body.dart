@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pizza_app/widgets/add_item_row_details.dart';
 import 'package:pizza_app/widgets/custom_button.dart';
 import 'package:pizza_app/widgets/custom_container_content_of_pizza.dart';
+import 'package:pizza_app/widgets/detaile_image.dart';
 
 class PizzaDetailsBody extends StatelessWidget {
   const PizzaDetailsBody({
@@ -19,14 +20,7 @@ class PizzaDetailsBody extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(24),
-              child: const Image(
-                image: NetworkImage(
-                    'https://media.istockphoto.com/id/1442417585/photo/person-getting-a-piece-of-cheesy-pepperoni-pizza.jpg?s=612x612&w=0&k=20&c=k60TjxKIOIxJpd4F4yLMVjsniB4W1BpEV4Mi_nb4uJU='),
-                fit: BoxFit.fill,
-              ),
-            ),
+            const DetaileImage(),
             const SizedBox(
               height: 30,
             ),
