@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pizza_app/widgets/add_item_row_details.dart';
 import 'package:pizza_app/widgets/custom_button.dart';
 import 'package:pizza_app/widgets/custom_container_content_of_pizza.dart';
@@ -85,10 +86,42 @@ class PizzaDetailsBody extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          Expanded(child: CustomContentOfPizza()),
-                          Expanded(child: CustomContentOfPizza()),
-                          Expanded(child: CustomContentOfPizza()),
-                          Expanded(child: CustomContentOfPizza()),
+                          Expanded(
+                            child: CustomContentOfPizza(
+                              icon: Icon(
+                                FontAwesomeIcons.fire,
+                                color: Colors.red,
+                              ),
+                              text: '475 Calories',
+                            ),
+                          ),
+                          Expanded(
+                            child: CustomContentOfPizza(
+                              icon: Icon(
+                                FontAwesomeIcons.dumbbell,
+                                color: Colors.red,
+                              ),
+                              text: '36g Protein',
+                            ),
+                          ),
+                          Expanded(
+                            child: CustomContentOfPizza(
+                              icon: Icon(
+                                FontAwesomeIcons.bowlFood,
+                                color: Colors.red,
+                              ),
+                              text: '21g Fat',
+                            ),
+                          ),
+                          Expanded(
+                            child: CustomContentOfPizza(
+                              icon: Icon(
+                                FontAwesomeIcons.carrot,
+                                color: Colors.red,
+                              ),
+                              text: '38g Carbs',
+                            ),
+                          ),
                         ],
                       ),
                       SizedBox(

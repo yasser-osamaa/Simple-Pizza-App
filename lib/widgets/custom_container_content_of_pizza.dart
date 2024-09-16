@@ -1,11 +1,13 @@
-
 import 'package:flutter/material.dart';
 
 class CustomContentOfPizza extends StatelessWidget {
   const CustomContentOfPizza({
     super.key,
+    this.icon,
+    required this.text,
   });
-
+  final Widget? icon;
+  final String text;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,20 +22,24 @@ class CustomContentOfPizza extends StatelessWidget {
           ),
         ],
       ),
-      child: const Card(
+      child: Card(
         elevation: 5,
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(
-                Icons.sports_gymnastics,
-                color: Colors.red,
-                size: 30,
+              icon ??
+                  const Icon(
+                    Icons.local_pizza,
+                    color: Colors.red,
+                    size: 30,
+                  ),
+              const SizedBox(
+                height: 5,
               ),
               Text(
-                '475 Calories',
-                style: TextStyle(
+                text,
+                style: const TextStyle(
                   fontSize: 12,
                 ),
               )
