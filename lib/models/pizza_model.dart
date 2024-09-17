@@ -7,7 +7,7 @@ class PizzaModel {
   final String optionImg;
   final String spicyType;
   final String vegType;
-  final double pizzaPrice;
+  final num pizzaPrice;
   final ContentModel content;
 
   PizzaModel(
@@ -37,10 +37,10 @@ class PizzaModel {
 }
 
 class ContentModel {
-  final double caloires;
-  final double carp;
-  final double fat;
-  final double protien;
+  final num caloires;
+  final num carp;
+  final num fat;
+  final num protien;
 
   ContentModel(
       {required this.caloires,

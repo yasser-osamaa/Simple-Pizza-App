@@ -1,4 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:pizza_app/constants.dart';
+import 'package:pizza_app/models/pizza_model.dart';
 import 'package:pizza_app/views/all_menu_view.dart';
 import 'package:pizza_app/widgets/custom_pizza_card.dart';
 
@@ -7,6 +10,8 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    CollectionReference menu =
+        FirebaseFirestore.instance.collection(kMenuCollection);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
@@ -24,16 +29,36 @@ class HomeViewBody extends StatelessWidget {
           ),
           SizedBox(
             height: 420,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: 6,
-              itemBuilder: (context, index) {
-                return const Padding(
-                  padding: EdgeInsets.only(
-                    right: 15,
-                  ),
-                  child: CustomPizzaCard(),
-                );
+            child: FutureBuilder<QuerySnapshot>(
+              future: menu.get(),
+              builder: (content, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(child: CircularProgressIndicator());
+                } else if (snapshot.hasError) {
+                  return Center(child: Text('Error: ${snapshot.error}'));
+                }
+                if (snapshot.hasData) {
+                  List<PizzaModel> pizzaList = [];
+                  for (var pizza in snapshot.data!.docs) {
+                    pizzaList.add(
+                      PizzaModel.fromJson(pizza),
+                    );
+                  }
+                  return ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: pizzaList.length,
+                    itemBuilder: (context, index) {
+                      return const Padding(
+                        padding: EdgeInsets.only(
+                          right: 15,
+                        ),
+                        child: CustomPizzaCard(),
+                      );
+                    },
+                  );
+                } else {
+                  return Center(child: Text('Error: ${snapshot.error}'));
+                }
               },
             ),
           ),
@@ -68,3 +93,15 @@ class HomeViewBody extends StatelessWidget {
     );
   }
 }
+// ListView.builder(
+//               scrollDirection: Axis.horizontal,
+//               itemCount: 6,
+//               itemBuilder: (context, index) {
+//                 return const Padding(
+//                   padding: EdgeInsets.only(
+//                     right: 15,
+//                   ),
+//                   child: CustomPizzaCard(),
+//                 );
+//               },
+//             ),
