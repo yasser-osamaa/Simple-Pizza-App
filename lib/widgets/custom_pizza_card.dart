@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pizza_app/models/pizza_model.dart';
 import 'package:pizza_app/views/pizza_details_view.dart';
 import 'package:pizza_app/widgets/circle_pizza_image.dart';
 import 'package:pizza_app/widgets/custom_pizza_type.dart';
@@ -8,7 +9,9 @@ import 'package:pizza_app/widgets/custom_veg_type.dart';
 class CustomPizzaCard extends StatelessWidget {
   const CustomPizzaCard({
     super.key,
+    required this.item,
   });
+  final PizzaModel item;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +20,6 @@ class CustomPizzaCard extends StatelessWidget {
         Navigator.pushNamed(context, PizzaDetailsView.id);
       },
       child: Container(
-        height: 420,
         width: 240,
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.only(
@@ -34,9 +36,9 @@ class CustomPizzaCard extends StatelessWidget {
             ),
           ],
         ),
-        child: const Card(
+        child: Card(
           elevation: 20,
-          shape: RoundedRectangleBorder(
+          shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(150),
               topRight: Radius.circular(150),
@@ -49,81 +51,90 @@ class CustomPizzaCard extends StatelessWidget {
               Positioned(
                 left: -0,
                 child: CirclePizzaImage(
+                  img: item.pizzaImg,
                   raduis: 110,
                 ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Column(
                   children: [
-                    SizedBox(
-                      height: 210,
+                    const SizedBox(
+                      height: 220,
                     ),
                     Row(
                       children: [
                         CustomVegType(
-                          type: 'veg',
+                          fontSize: 10,
+                          type: item.vegType,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         CustomPizzaType(
-                          type: 'spicy',
+                          fontSize: 10,
+                          type: item.spicyType,
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Text(
-                      'Mighty Meatbal',
-                      style: TextStyle(
+                      item.pizzaName,
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 25,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Text(
-                      'Crafrt your masterpiece: endless topping, infinite delight!',
+                      item.pizzaDesc,
                       maxLines: 3,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 15,
                         color: Colors.grey,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
+                    ),
+                    const Spacer(
+                      flex: 2,
                     ),
                     Row(
                       children: [
                         Text(
-                          r'$80.00',
-                          style: TextStyle(
+                          r'$' '${item.pizzaPrice - item.pizzaPrice * .2}',
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 23,
                             color: Colors.blue,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 5,
                         ),
                         Text(
-                          r'$85.00',
-                          style: TextStyle(
+                          r'$' '${item.pizzaPrice}',
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
                             color: Colors.grey,
                             decoration: TextDecoration.lineThrough,
                           ),
                         ),
-                        Spacer(
+                        const Spacer(
                           flex: 1,
                         ),
-                        CustomPlusIcon(),
+                        const CustomPlusIcon(),
                       ],
+                    ),
+                    const Spacer(
+                      flex: 1,
                     ),
                   ],
                 ),

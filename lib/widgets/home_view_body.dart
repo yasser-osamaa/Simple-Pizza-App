@@ -48,11 +48,13 @@ class HomeViewBody extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     itemCount: pizzaList.length,
                     itemBuilder: (context, index) {
-                      return const Padding(
-                        padding: EdgeInsets.only(
+                      return Padding(
+                        padding: const EdgeInsets.only(
                           right: 15,
                         ),
-                        child: CustomPizzaCard(),
+                        child: CustomPizzaCard(
+                          item: pizzaList[index],
+                        ),
                       );
                     },
                   );
