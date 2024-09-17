@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:pizza_app/models/pizza_model.dart';
 import 'package:pizza_app/widgets/add_item_row_details.dart';
 import 'package:pizza_app/widgets/custom_button.dart';
 import 'package:pizza_app/widgets/custom_container_content_of_pizza.dart';
@@ -8,8 +9,9 @@ import 'package:pizza_app/widgets/detaile_image.dart';
 class PizzaDetailsBody extends StatelessWidget {
   const PizzaDetailsBody({
     super.key,
+    required this.pizza,
   });
-
+  final PizzaModel pizza;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -20,9 +22,11 @@ class PizzaDetailsBody extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            const DetaileImage(),
+            DetaileImage(
+              image: pizza.optionImg,
+            ),
             const SizedBox(
-              height: 30,
+              height: 20,
             ),
             Container(
               decoration: BoxDecoration(
@@ -34,19 +38,22 @@ class PizzaDetailsBody extends StatelessWidget {
                   ),
                 ],
               ),
-              child: const Card(
+              child: Card(
                 elevation: 5,
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Column(
                     children: [
+                      const SizedBox(
+                        height: 20,
+                      ),
                       Row(
                         children: [
                           SizedBox(
                             width: 260,
                             child: Text(
-                              'Truffle Temptation Extravaganza',
-                              style: TextStyle(
+                              pizza.pizzaName,
+                              style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 23,
                               ),
@@ -55,16 +62,17 @@ class PizzaDetailsBody extends StatelessWidget {
                           Column(
                             children: [
                               Text(
-                                r'$80.00',
-                                style: TextStyle(
+                                r'$'
+                                '${pizza.pizzaPrice - pizza.pizzaPrice * .2}',
+                                style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 23,
                                   color: Colors.blue,
                                 ),
                               ),
                               Text(
-                                r'$85.00',
-                                style: TextStyle(
+                                r'$' '${pizza.pizzaPrice}',
+                                style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18,
                                   color: Colors.grey,
@@ -75,96 +83,96 @@ class PizzaDetailsBody extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       Row(
                         children: [
                           Expanded(
                             child: CustomContentOfPizza(
-                              icon: Icon(
+                              icon: const Icon(
                                 FontAwesomeIcons.fire,
                                 color: Colors.red,
                               ),
-                              text: '475 Calories',
+                              text: '${pizza.content.caloires} Calories',
                             ),
                           ),
                           Expanded(
                             child: CustomContentOfPizza(
-                              icon: Icon(
+                              icon: const Icon(
                                 FontAwesomeIcons.dumbbell,
                                 color: Colors.red,
                               ),
-                              text: '36g Protein',
+                              text: '${pizza.content.protien} Protein',
                             ),
                           ),
                           Expanded(
                             child: CustomContentOfPizza(
-                              icon: Icon(
+                              icon: const Icon(
                                 FontAwesomeIcons.bowlFood,
                                 color: Colors.red,
                               ),
-                              text: '21g Fat',
+                              text: '${pizza.content.fat} Fat',
                             ),
                           ),
                           Expanded(
                             child: CustomContentOfPizza(
-                              icon: Icon(
+                              icon: const Icon(
                                 FontAwesomeIcons.carrot,
                                 color: Colors.red,
                               ),
-                              text: '38g Carbs',
+                              text: '${pizza.content.carp} Carbs' ,
                             ),
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
-                      Divider(
+                      const Divider(
                         thickness: 2,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
-                      AddItemRow(
+                      const AddItemRow(
                         text: 'Make Yours',
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
-                      Divider(
+                      const Divider(
                         thickness: 2,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
-                      AddItemRow(
+                      const AddItemRow(
                         text: 'Ingredients',
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
-                      Divider(
+                      const Divider(
                         thickness: 2,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
-                      AddItemRow(
+                      const AddItemRow(
                         text: 'Add Extra',
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
-                      Divider(
+                      const Divider(
                         thickness: 2,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
-                      CustomButton(),
-                      SizedBox(
+                      const CustomButton(),
+                      const SizedBox(
                         height: 20,
                       )
                     ],

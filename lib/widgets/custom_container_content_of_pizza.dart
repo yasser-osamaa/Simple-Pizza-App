@@ -40,7 +40,8 @@ class CustomContentOfPizza extends StatelessWidget {
               Text(
                 text,
                 style: const TextStyle(
-                  fontSize: 12,
+                  fontSize: 11,
+                  fontWeight: FontWeight.bold,
                 ),
               )
             ],

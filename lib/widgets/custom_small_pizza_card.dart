@@ -16,7 +16,7 @@ class CustomSmallPizzaCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, PizzaDetailsView.id);
+        Navigator.pushNamed(context, PizzaDetailsView.id, arguments: item);
       },
       child: Container(
         decoration: BoxDecoration(
